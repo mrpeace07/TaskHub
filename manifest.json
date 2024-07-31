@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Hustle Hub",
+    "version": "1.0",
+    "description": "Hustle Hub: A sleek Chrome extension to effortlessly manage your to-do list and stay productive",
+    "permissions": [
+      "storage",
+      "activeTab"
+    ],
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "16": "image.png",
+        "512":"image.png"
+      }
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "icons": {
+      "16": "public/images/icon16.png"
+      
+    }
+  }
+  
