@@ -2,6 +2,13 @@
 
 **Hustle Hub** is a Chrome extension designed to help you manage your to-do lists efficiently. This guide will walk you through setting up the project, including the backend with Node.js and MongoDB.
 
+### Demo H1
+![Demo H1](demoH1.jpg)
+
+### Demo H2
+![Demo H2](demoH2.jpg)
+
+
 ## Features
 
 - Add, mark as completed, and delete tasks.
