@@ -5,8 +5,7 @@
 ### Demo H1
 ![Demo H1](demoH1.png)
 
-### Demo H2
-![Demo H2](demoH2.png)
+
 
 
 ## Features
