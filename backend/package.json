@@ -1,10 +1,9 @@
 {
   "name": "todolist",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "A to-do list application",
+  "main": "index.js",
   "engines": {
-
     "node": "20.x"
   },
   "scripts": {
