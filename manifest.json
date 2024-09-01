@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Hustle Hub",
+    "name": "TaskHub",
     "version": "1.0",
-    "description": "Hustle Hub: A sleek Chrome extension to effortlessly manage your to-do list and stay productive",
+    "description": "TaskHub: A sleek Chrome extension to effortlessly manage your to-do list and stay productive",
     "permissions": [
       "storage",
       "activeTab"

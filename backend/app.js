@@ -21,6 +21,10 @@ const defaultItems = [
   { name: "<-- Hit this to remove the item" },
 ];
 
+app.get("/", async(req,res) =>{
+  res.send("deployed");
+})
+
 app.get("/items", async (req, res) => { // first retrive madutte data na and then check madudte yavdar data idiya anta and then ila andre default items na add madutte and response ali jsone file na kaslutte
   try {
     let items = await Item.find({});

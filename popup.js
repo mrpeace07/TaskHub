@@ -4,53 +4,65 @@ document.addEventListener("DOMContentLoaded", () => {
   const addItemForm = document.getElementById("add-item-form");
   const newItemInput = document.getElementById("new-item");
 
-  const updateList = () => {
-    fetch("http://localhost:3003/items")
-      .then((response) => response.json())
-      .then((data) => {
-        titleElement.textContent = data.title;
-        listElement.innerHTML = data.items
-          .map(
-            (item) => `
-                        <div class="item">
-                            <input type="checkbox" data-id="${item._id}">
-                            <p>${item.name}</p>
-                        </div>
-                    `
-          )
-          .join("");
-      })
-      .catch((err) => console.error("Failed to fetch items:", err));
+  const updateList = async () => {
+    try {
+      const response = await fetch("http://localhost:3003/items");
+
+      const data = await response.json();
+
+      titleElement.textContent = data.title;
+      listElement.innerHTML = data.items
+        .map(
+          (item) => `
+              <div class="item">
+                  <input type="checkbox" data-id="${item._id}">
+                  <p>${item.name}</p>
+              </div>
+          `
+        )
+        .join("");
+    } catch (err) {
+      console.error("Failed to fetch items:", err);
+    }
   };
 
-  addItemForm.addEventListener("submit", (event) => {
+  addItemForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const itemName = newItemInput.value.trim();
+
     if (itemName) {
-      fetch("http://localhost:3003/add", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: itemName }),
-      })
-        .then(() => {
-          newItemInput.value = "";
-          updateList();
-        })
-        .catch((err) => console.error("Failed to add item:", err));
+      try {
+        await fetch("http://localhost:3003/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: itemName }),
+        });
+
+        newItemInput.value = "";
+
+        await updateList();
+      } catch (err) {
+        console.error("Failed to add item:", err);
+      }
     }
   });
 
-  listElement.addEventListener("change", (event) => {
+  
+  listElement.addEventListener("change", async (event) => {
     if (event.target.type === "checkbox") {
-      fetch("http://localhost:3003/delete", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: event.target.getAttribute("data-id") }),
-      })
-        .then(() => updateList())
-        .catch((err) => console.error("Failed to delete item:", err));
+      try {
+        await fetch("http://localhost:3003/delete", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: event.target.getAttribute("data-id") }),
+        });
+        await updateList();
+      } catch (err) {
+        console.error("Failed to delete item:", err);
+      }
     }
   });
-
-  updateList(); //first load madak use madtiv
+  
+  updateList(); // First load
+  
 });
