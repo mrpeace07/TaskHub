@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Node modules
 node_modules/
 
@@ -14,3 +15,21 @@ Thumbs.db
 # IDE-specific files
 .vscode/
 .idea/
+=======
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+>>>>>>> a2150e5a85a32b34c8c2b5031ff84e15d7bb6af8
